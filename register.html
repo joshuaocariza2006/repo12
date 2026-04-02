@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Worksheet Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #38bdf8;
+            --bg: #020617;
+            --input-bg: rgba(15, 23, 42, 0.6);
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: var(--bg); 
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin: 0;
+            overflow: hidden;
+            background-image: linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 45px 45px;
+        }
+
+        .glow-sphere {
+            position: absolute; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%);
+            z-index: -1; filter: blur(50px);
+            animation: float 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes float { from { transform: translate(-20%, 20%); } to { transform: translate(20%, -20%); } }
+
+        .login-box {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 40px;
+            border-radius: 30px;
+            width: 400px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            animation: boxEntrance 0.6s ease-out;
+        }
+
+        @keyframes boxEntrance { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+        h2 { margin: 0; font-weight: 800; font-size: 1.8rem; color: #fff; text-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+        p { color: #64748b; margin-bottom: 25px; font-size: 0.9rem; }
+
+        input {
+            width: 100%; padding: 14px 18px; margin-bottom: 15px;
+            background: var(--input-bg); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px; color: white; outline: none; transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        input:focus { border-color: var(--primary); background: rgba(15, 23, 42, 0.9); transform: translateX(5px); }
+
+        button {
+            width: 100%; padding: 16px; background: var(--primary); 
+            border: none; border-radius: 12px; font-weight: 700; 
+            cursor: pointer; transition: 0.3s; color: var(--bg);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        button:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4); }
+
+        .footer-link { display: block; margin-top: 20px; color: #64748b; text-decoration: none; font-size: 0.85rem; }
+        .footer-link span { color: var(--primary); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="glow-sphere"></div>
+    <div class="login-box">
+        <h2>Create Account</h2>
+        <p>Join the next generation of learners</p>
+        
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email Address">
+        <input type="password" placeholder="Create Password">
+        
+        <button onclick="handleAuth('Account Created!')">Initialize Identity</button>
+        
+        <a href="login.html" class="footer-link">Already have an account? <span>Login</span></a>
+    </div>
+
+    <script>
+        function handleAuth(message) {
+            alert(message);
+            window.location.href = "index.html"; // REDIRECT TO HOME
+        }
+    </script>
+</body>
+</html>

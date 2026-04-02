@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet Hub - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #38bdf8;
+            --secondary: #818cf8;
+            --bg: #020617;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: #e2e8f0;
+            margin: 0;
+            overflow-x: hidden;
+            /* Added a subtle grid for depth */
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* The Moving Energy Blob */
+        .blob {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(129, 140, 248, 0.05) 100%);
+            filter: blur(100px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: drift 15s infinite alternate ease-in-out;
+        }
+
+        @keyframes drift {
+            from { transform: translate(-10%, 10%) scale(1); }
+            to { transform: translate(30%, -10%) scale(1.2); }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { 
+            font-weight: 700; 
+            font-size: 1.5rem; 
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        .hero {
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* COOL REPLACEMENT: Layered Neon Glow (No -webkit needed) */
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            text-shadow: 
+                0 0 10px rgba(56, 189, 248, 0.4),
+                0 0 40px rgba(56, 189, 248, 0.2),
+                0 0 80px rgba(56, 189, 248, 0.1);
+            animation: pulse-glow 4s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            from { text-shadow: 0 0 10px rgba(56, 189, 248, 0.4); }
+            to { text-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary); }
+        }
+
+        .hero p { 
+            color: #94a3b8; 
+            font-size: 1.1rem; 
+            max-width: 550px; 
+            line-height: 1.6;
+        }
+        
+        /* COOL REPLACEMENT: Interactive Shimmer Button */
+        .btn {
+            position: relative;
+            margin-top: 35px;
+            padding: 16px 45px;
+            background: var(--primary);
+            color: #020617;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            overflow: hidden;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.6), 
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.5);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:active { transform: scale(0.98); }
+
+    </style>
+</head>
+<body>
+    <div class="blob"></div>
+   <header>
+    <div class="logo">📚 WorksheetHub</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="login.html">Login</a>
+        <a href="register.html" style="color: var(--primary); font-weight: 600;">Register</a>
+        <a href="worksheet.html">Worksheets</a>
+    </nav>
+</header>
+    <section class="hero">
+        <h1>Master Every Subject.</h1>
+        <p>A premium ecosystem of interactive resources designed to turn students into experts through digital mastery.</p>
+        <a href="worksheet.html"><button class="btn">Explore Worksheets</button></a>
+    </section>
+</body>
+</html>

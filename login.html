@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Worksheet Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #38bdf8;
+            --accent: #818cf8;
+            --bg: #020617;
+            --input-bg: rgba(15, 23, 42, 0.6);
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: var(--bg); 
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin: 0;
+            overflow: hidden;
+            /* Cyber Grid Background to match Home/About */
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 45px 45px;
+        }
+
+        /* Floating background glow */
+        .glow-sphere {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(50px);
+            animation: float 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes float {
+            from { transform: translate(-20%, -20%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        .login-box {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 50px 40px;
+            border-radius: 30px;
+            width: 380px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            position: relative;
+            animation: boxEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes boxEntrance {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            font-size: 2rem;
+            letter-spacing: -1px;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        p {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%; 
+            padding: 16px 20px; 
+            background: var(--input-bg); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px; 
+            color: white; 
+            outline: none; 
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        /* The Neon Focus Effect */
+        input:focus { 
+            border-color: var(--primary); 
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+            transform: scale(1.02);
+        }
+
+        button {
+            width: 100%; 
+            padding: 16px; 
+            margin-top: 15px;
+            background: var(--primary); 
+            border: none; 
+            border-radius: 14px; 
+            font-weight: 700; 
+            font-size: 1rem;
+            color: var(--bg);
+            cursor: pointer; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        /* High-Gloss Shimmer Sweep */
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        button:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4);
+            letter-spacing: 1px;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        .back-home {
+            display: block;
+            margin-top: 25px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+   <div class="login-box">
+    <h2>Welcome Back</h2>
+    <p>Enter your credentials to access the hub</p>
+    
+    <input type="text" placeholder="Email Address">
+    <input type="password" placeholder="Password">
+    
+    <button onclick="handleAuth('Access Granted')">Initialize Session</button>
+    
+    <a href="register.html" class="back-home">New here? <span>Create Account</span></a>
+</div>
+
+<script>
+    function handleAuth(message) {
+        alert(message);
+        window.location.href = "index.html"; // REDIRECT TO HOME
+    }
+</script>
+
+</body>
+</html>
